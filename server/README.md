@@ -27,33 +27,24 @@ Refer to the startup script of trellis. We hosted with docker on remote cluster.
 Huggingface token `HF_TOKEN` is needed for ckpt downloading.
 
 
-### 1.2 Start the Vision-Language Model (VLM)
-We utilize **Qwen3-VL** hosted with vllm.
+### 1.2 LLM and VLM (GLM API)
 
-**Download and Serve:**
-```bash
-# Download model
-hf download Qwen/Qwen3-VL-30B-A3B-Instruct --local-dir /tmp/Qwen3-VL-30B-A3B-Instruct
+This project uses **ZhipuAI GLM** models via API (no local deployment needed):
 
-# Serve model
-cd /tmp
-vllm serve Qwen3-VL-30B-A3B-Instruct \
-    --port 8080 \
-    --max-model-len 32768 \
-    --async-scheduling \
-    --media-io-kwargs '{"video": {"num_frames": -1, "fps": -1}}' \
-    --mm-processor-cache-gb 0
-```
+- **GLM-4-Flash** — Text/LLM tasks (layout generation, planning)
+- **GLM-4V-Flash** — Vision/VLM tasks (floor plan image analysis)
 
-### 1.3 Start the General LLM
-We utilize **gpt-oss-120b** hosted with vllm.
+**Setup:**
+1. Get an API key from [ZhipuAI Open Platform](https://open.bigmodel.cn/)
+2. Copy `key.json.example` to `key.json`:
+   ```bash
+   cp key.json.example key.json
+   ```
+3. Fill in your API key as `API_TOKEN` in `key.json`
 
-**Serve Model:**
-```bash
-vllm serve openai/gpt-oss-120b --port 8080 --tensor-parallel-size 4 --async-scheduling
-```
+The `MODEL_DICT` in `key.json` can be customized to use other GLM models (e.g., `glm-4-plus`, `glm-4v-plus`).
 
-### 1.4 Configuration
+### 1.3 Configuration
 Populate `key.json` with the necessary API keys and URLs and update `MODEL_DICT` if utilizing different model types.
 
 ## 2. Generation

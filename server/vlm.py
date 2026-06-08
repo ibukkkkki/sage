@@ -444,7 +444,7 @@ def call_vlm(
     Call VLM API with retry logic.
     
     Args:
-        vlm_type: Type of VLM to use ("claude", "qwen", "openai", "glmv")
+        vlm_type: Type of VLM to use ("claude", "qwen", "openai", "glm", "glmv")
         model: Model name (will be overridden by MODEL_DICT)
         max_tokens: Maximum tokens to generate
         temperature: Temperature for generation
@@ -465,7 +465,7 @@ def call_vlm(
             model, max_tokens, temperature, messages, thinking,
             max_retries, retry_base_delay, retry_max_delay
         )
-    elif vlm_type in ["qwen", "openai", "glmv"]:
+    elif vlm_type in ["qwen", "openai", "glm", "glmv"]:
         return _call_openai_with_retry(
             vlm_type, model, max_tokens, temperature, messages, thinking,
             max_retries, retry_base_delay, retry_max_delay

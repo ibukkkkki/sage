@@ -1,5 +1,5 @@
 {
     "API_TOKEN": "",
-    "API_URL_QWEN": "",
-    "MODEL_NAME": "Qwen3-VL-32B-Thinking"
+    "API_URL_GLM": "https://open.bigmodel.cn/api/paas/v4/",
+    "MODEL_NAME": "glm-4v-flash"
 }

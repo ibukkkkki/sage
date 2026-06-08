@@ -20,23 +20,14 @@ Install the `sage` Python environment using the provided configuration at `./env
 ln -s $(realpath ../server/isaacsim/isaac.sim.mcp_extension) ~/isaacsim/exts/isaac.sim.mcp_extension
 ```
 
-### 1.4 Start MCP Client VLM (Thinking Version)
-We utilize **Qwen3-VL-32B-Thinking** hosted with vllm.
+### 1.4 LLM and VLM (GLM API)
 
-```bash
-# Download model
-hf download Qwen/Qwen3-VL-32B-Thinking --local-dir /tmp/Qwen3-VL-32B-Thinking
+We utilize **ZhipuAI GLM-4V-Flash** via API (no local deployment needed).
 
-# Serve model
-cd /tmp
-vllm serve Qwen3-VL-32B-Thinking \
-    --port 8080 \
-    --trust-remote-code \
-    --async-scheduling \
-    --mm-processor-cache-gb 0 \
-    --tensor-parallel-size 8 \
-    --reasoning-parser qwen3
-```
+**Setup:**
+1. Get an API key from [ZhipuAI Open Platform](https://open.bigmodel.cn/)
+2. Fill in your API key as `API_TOKEN` in `./key.json`
+3. Ensure `API_URL_GLM` is set to `https://open.bigmodel.cn/api/paas/v4/`
 
 ### 1.5 Configuration
 Fill in the API token and URL in `./key.json`.

@@ -1,0 +1,19 @@
+{
+    "ANTHROPIC_API_KEY": "",
+    "API_TOKEN": "your-glm-api-key",
+    "API_URL_QWEN": "https://open.bigmodel.cn/api/paas/v4/",
+    "API_URL_OPENAI": "https://open.bigmodel.cn/api/paas/v4/",
+    "API_URL_GLM": "https://open.bigmodel.cn/api/paas/v4/",
+    "MODEL_DICT": {
+        "qwen": "glm-4v-flash",
+        "openai": "glm-4-flash",
+        "claude": "claude-sonnet-4-20250514",
+        "glm": "glm-4-flash",
+        "glmv": "glm-4v-flash"
+    },
+    "TRELLIS_SERVER_URL": "",
+    "FLUX_SERVER_URL": "",
+    "API_CLIENT_ID": "",
+    "API_CLIENT_SECRET": "",
+    "API_URL": ""
+}

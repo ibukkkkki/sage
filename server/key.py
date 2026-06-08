@@ -27,12 +27,15 @@ with open("key.json", "r") as f:
 ANTHROPIC_API_KEY = key_dict["ANTHROPIC_API_KEY"]
 
 API_TOKEN = key_dict["API_TOKEN"]
-API_URL_QWEN = key_dict["API_URL_QWEN"]
-API_URL_OPENAI = key_dict["API_URL_OPENAI"]
+API_URL_QWEN = key_dict.get("API_URL_QWEN", key_dict.get("API_URL_GLM", ""))
+API_URL_OPENAI = key_dict.get("API_URL_OPENAI", key_dict.get("API_URL_GLM", ""))
+API_URL_GLM = key_dict["API_URL_GLM"]
 
 API_URL_DICT = {
     "qwen": API_URL_QWEN,
     "openai": API_URL_OPENAI,
+    "glm": API_URL_GLM,
+    "glmv": API_URL_GLM,
 }
 
 MODEL_DICT = key_dict["MODEL_DICT"]

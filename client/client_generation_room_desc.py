@@ -403,12 +403,12 @@ class MCPClientOAI:
             key_dict = json.load(f)
 
         API_TOKEN = key_dict["API_TOKEN"]
-        API_URL_QWEN = key_dict["API_URL_QWEN"]
+        API_URL_GLM = key_dict.get("API_URL_GLM", key_dict.get("API_URL_QWEN", ""))
         self.MODEL_NAME = key_dict["MODEL_NAME"]
 
-        # Initialize OpenAI client with Qwen3-VL endpoint
+        # Initialize OpenAI client
         self.openai_client = openai.OpenAI(
-            base_url=API_URL_QWEN,
+            base_url=API_URL_GLM,
             api_key=API_TOKEN
         )
         
